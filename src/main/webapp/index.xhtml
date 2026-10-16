@@ -2,12 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html">
 <h:head>
-    <title>TP0 - Jakarta Faces</title>
+    <title>TP0 - Jakarta Faces et CDI</title>
 </h:head>
 <h:body>
     <h1>Bienvenue dans mon TP0 Jakarta EE !</h1>
+
     <h:form>
-        <h:outputText value="Ma première page JSF fonctionne !" />
+        <h2>Test du Bean CDI</h2>
+
+        <h:outputText value="Bonjour #{bb.nom} !" />
     </h:form>
 </h:body>
 </html>
