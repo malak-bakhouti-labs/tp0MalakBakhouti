@@ -1,4 +1,4 @@
-package ma.formations.malak.tp0malakbakhouti.jsf; // A modifier...
+package ma.formations.malak.tp0malakbakhouti.jsf;
 
 
 import ma.formations.malak.tp0malakbakhouti.service.GenerateurReponse;
@@ -131,7 +131,7 @@ public class Bb implements Serializable {
         // Traite la question pour construire la réponse.
         String roleSystemePourModification = null;
         if (this.conversation.isEmpty()) { // Si la conversation n'a pas encore commencé
-            roleSystemePourModification = this.roleSysteme; // Pour GenerateurReponse.modifier()
+            roleSystemePourModification = this.roleSysteme; // Rôle utilisé pour la première réponse
             // Invalide la liste pour changer le rôle système
             this.roleSystemeChangeable = false;
         }

@@ -1,4 +1,4 @@
-package ma.formations.malak.tp0malakbakhouti.service; // A modifier
+package ma.formations.malak.tp0malakbakhouti.service;
 
 import jakarta.enterprise.context.Dependent;
 
@@ -28,6 +28,13 @@ public class GenerateurReponse implements Serializable { // Car CDI peut mettre 
             resultat += roleSysteme.toUpperCase(Locale.FRENCH) + "\n";
         }
         resultat += question.toLowerCase(Locale.FRENCH) + "||";
+
+        // Bonus TP0 : compter les mots de la question.
+        int nombreMots = question.trim().isEmpty()
+                ? 0
+                : question.trim().split("\\s+").length;
+
+        resultat += "\nNombre de mots : " + nombreMots;
         return resultat;
     }
 }
