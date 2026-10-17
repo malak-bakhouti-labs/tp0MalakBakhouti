@@ -3,7 +3,6 @@ package ma.formations.malak.tp0malakbakhouti.service;
 import jakarta.enterprise.context.Dependent;
 
 import java.io.Serializable;
-import java.util.Locale;
 
 /**
  * Classe de service pour les modificateurs de question.
@@ -14,27 +13,20 @@ import java.util.Locale;
 // Portée Dependent : l'instance sera supprimée quand la classe qui l'a injectée sera supprimée.
 public class GenerateurReponse implements Serializable { // Car CDI peut mettre l'instance en mémoire secondaire.
     /**
-     * Modificateur de question.
-     * @param question La question à modifier.
-     * @param roleSysteme Le rôle système à utiliser pour la modification de la question.
-     * @return La question modifiée : le rôle système en majuscule au début de la question, s'il n'est pas null,
-     * suivi d'un saut de ligne,
-     * puis la question en minuscule, le tout entouré de "||".
+     * Compte le nombre de mots dans la question de l'utilisateur.
+     *
+     * @param question La question saisie.
+     * @param roleSysteme Le rôle système, conservé pour la compatibilité.
+     * @return La question et son nombre de mots.
      */
     public String genererReponse(String question, String roleSysteme) {
-        String resultat = "||";
-        if (roleSysteme != null) {
-            // Ajouter le rôle système en majuscule au début du résultat, suivi d'un saut de ligne.
-            resultat += roleSysteme.toUpperCase(Locale.FRENCH) + "\n";
-        }
-        resultat += question.toLowerCase(Locale.FRENCH) + "||";
+        String texte = question.trim();
 
-        // Bonus TP0 : compter les mots de la question.
-        int nombreMots = question.trim().isEmpty()
+        int nombreMots = texte.isEmpty()
                 ? 0
-                : question.trim().split("\\s+").length;
+                : texte.split("\\s+").length;
 
-        resultat += "\nNombre de mots : " + nombreMots;
-        return resultat;
+        return "Question : " + question
+                + "\nNombre de mots : " + nombreMots;
     }
 }
